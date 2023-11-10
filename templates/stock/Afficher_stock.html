@@ -1,0 +1,40 @@
+{% extends "Base.html" %}
+{% block body %}
+    <section class="magasin">
+        <div id="container">
+            <div class="container-magasin">
+                <div class="ajoute"><a href="/Ajouter_stock/"><button type="button" class="btn btn-success btn-lg">Ajouter</button></a></div>
+                <div class="title4"><h4>Liste des Stocks</h4></div>
+                <table class=" tableau">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Magasin</th>
+                            <th>Produit</th>
+                            <th>Quantite</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in data%}
+                            <tr>
+                                <td>{{data.Idstock}}</td>
+                                <td>{{data.NomMagasin}}</td>
+                                <td>{{data.NomProduit}}</td>
+                                <td>{{data.Quantitestock}}</td>
+                                <td class="editer">
+                                    <div>
+                                        <a href="/Modifier_stock/{{data.Idstock}}">Modifier</a>
+                                        <a href="/Supprimer_stock/{{data.Idstock}}">Supprimer</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</section>      
+{% endblock %}
+            
+       

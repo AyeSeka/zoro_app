@@ -1,0 +1,42 @@
+{% extends "Base.html" %}
+{% block body %}
+    <section class="magasin">
+        <div id="container">
+            <div class="container-magasin">
+                <div class="ajoute"><a href="/Ajouter_magasin/"><button type="button" class="btn btn-success btn-lg">Ajouter</button></a></div>
+                <div class="title4"><h4>Liste des Magasins</h4></div>
+                <table class=" tableau">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Adresse</th>
+                            <th>Telephone</th>
+                            <th>E-mail</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in data%}
+                            <tr>
+                                <td>{{data.IdMagasin}}</td>
+                                <td>{{data.NomMagasin}}</td>
+                                <td>{{data.AdresseMagasin}}</td>
+                                <td>{{data.Telephone}}</td>
+                                <td>{{data.mail}}</td>
+                                <td class="editer">
+                                    <div>
+                                        <a href="/Modifier_magasin/{{data.IdMagasin}}">Modifier</a>
+                                        <a href="/Supprimer_magasin/{{data.IdMagasin}}">Supprimer</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</section>      
+{% endblock %}
+            
+       

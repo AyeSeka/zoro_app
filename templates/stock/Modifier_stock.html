@@ -1,0 +1,51 @@
+{% extends "Base.html" %}
+{% block body %}
+    <section class="ajouter">
+        <div id="container">
+            <div class="container-ajouter">
+                <div><h3>Modifier un nouveau stock</h3></div>
+                <form action="{{ url_for('Modifier_stock_traitement', Id=item_id) }}" method="POST">  
+                    <div class="mb-3 row">
+                        <label for="Magasin" class="col-sm-2 col-form-label">Magasin :</label>
+                        <div class="col-sm-10">
+                            <select id="Magasin" class="form-control" name="Magasin">
+                                <option>--Choisissez votre Magasin--</option>
+                                {% for data2 in data2%}
+                                <option value="{{data2.IdMagasin}}">{{data2.NomMagasin}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="Produit" class="col-sm-2 col-form-label">Produit :</label>
+                        <div class="col-sm-10">
+                            <select id="Produit" class="form-control" name="Produit">
+                                <option>--Choisissez votre Produit--</option>
+                                {% for data1 in data1%}
+                                <option value="{{data1.IdProduit}}">{{data1.NomProduit}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="Quantite" class="col-sm-2 col-form-label">Quantite:</label>
+                        <div class="col-sm-10">
+                            {%for data in data%}
+                            <input type="number" class="form-control" name="Quantite" id="Quantite" value="{{data.Quantitestock}}">
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="mb-3 row justify-content-center " style="width: 90%;">
+                        <div class="col-sm-10 column justify-content-center align-items-center ms-auto" style="width: 32%;">
+                            <button type="reset" class="btn btn-danger button"><a href="/Afficher_stock/">Retour</a></button>
+                            <a href=""> <button type="submit" class="btn btn-success"> Valider</button></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+            
+        
+    
